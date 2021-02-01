@@ -1,0 +1,91 @@
+/* .upscroller {
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+	transition: -webkit-transform 0.5s;
+	position: fixed;
+	right: 10px;
+	z-index:9999 !important;
+	width: 64px;
+	height: 64px;
+	bottom:-70px;
+	cursor: pointer;
+	background: url("../img/icon-top.png") no-repeat;
+	background-size: 64px;
+}
+
+.upscroller.show {
+	-webkit-transform: translate3d(0,-140px,0);
+	transform: translate3d(0,-140px,0);
+}
+ */
+ 
+ .upscroller {
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+	transition: -webkit-transform 0.5s;
+	position: fixed;
+	right: 10px;
+	z-index:9999 !important;
+	width: 48px;
+	height: 48px;
+	bottom:-70px;
+	cursor: pointer;
+	background: url("../img/icon-top2.png") no-repeat;
+	background-size: 48px;
+    text-align: center;
+}
+.upscroller i{
+    line-height: 48px;
+    text-align: center;
+    font-size: 30px;
+    color: #dbdbdb;
+}
+
+.upscroller.show {
+	-webkit-transform: translate3d(0,-140px,0);
+	transform: translate3d(0,-140px,0);
+}
+
+.upDiv{
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    transition: -webkit-transform 0.5s;
+    position: fixed;
+    right: 10px;
+    z-index:10000 !important;
+    bottom:150px;
+
+}
+.upDiv_ch{
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    transition: -webkit-transform 0.5s;
+    right: 10px;
+    z-index:9999 !important;
+    width: 48px;
+    height: 48px;
+    bottom:-70px;
+    cursor: pointer;
+    text-align: center;
+}
+.upDiv_ch:nth-of-type(1){
+    background: url("../img/liao1.png") no-repeat;
+    background-size:48px 48px;
+
+}
+.upDiv_ch:nth-of-type(2){
+    background: url("../img/home1.png") no-repeat;
+     background-size:48px 48px;
+}
+.upDiv_ch:nth-of-type(3){
+    background: url("../img/icon-top1.png") no-repeat;
+     background-size:48px 48px;
+}
+.upDiv_ch:hover{
+    transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+    -ms-transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+    -moz-transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+    -o-transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+    -webkit-transform: scale(1.2, 1.2) translate3d(0, 0, 0)
+}
+ 
