@@ -28,7 +28,8 @@ struct SideMenuView: View {
                 ForEach(channelmanager.channels){ channel in
                     NavigationLink(
                         
-                        destination: BottomView(channelUrl:channel.url),
+                        destination: //BottomView(channelUrl:channel.url)
+                            BottomView(channelID:channel.id),
                         label: {
                            //SideMenuOptionView(viewModel: channel)
                             

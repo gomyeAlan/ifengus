@@ -19,7 +19,7 @@ struct ContentView: View {
                 }
                 
                 VStack {
-                    BottomView(channelUrl:"https://www.ifengus.com")
+                    BottomView(channelID:2)
                         .cornerRadius(isShowing ? 20 : 10)
                         .offset(x: isShowing ? 300 : 0, y: isShowing ? 44 : 0)
                         .scaleEffect(isShowing ? 0.8 : 1)
@@ -57,7 +57,7 @@ struct HomeView: View {
         ZStack {
             Color(.white)
             //WebViewShow(channelUrl:"https://www.ifengus.com")
-            ListView()
+            ListView(channelID:17)
             .padding()
             
         }

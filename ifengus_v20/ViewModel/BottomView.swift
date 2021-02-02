@@ -10,14 +10,16 @@ import SwiftUI
 struct BottomView: View {
     @State private var selected = 0
     
-    var channelUrl: String 
+    //var channelUrl: String
+    var channelID: Int
 
     var body: some View {
         ZStack {
             VStack{
+
                 TabView() {
                     //WebViewShow(channelUrl:channelUrl)
-                    ListView()
+                    ListView(channelID:channelID)
                     .tabItem {
                 Image(systemName: (selected == 0 ? "house.fill" : "house"))
                 Text("Menu")
@@ -31,7 +33,8 @@ struct BottomView: View {
                 Text("Menu")
               }
      
-                    WebViewShow(channelUrl:channelUrl)
+                   // WebViewShow(channelID:channelID)
+                   ListView(channelID:channelID)
                 .tabItem {
                 Image(systemName: (selected == 2 ? "heart.fill" : "heart"))
                 Text("Favorite")
@@ -53,6 +56,6 @@ struct BottomView: View {
 
 struct BottomView_Previews: PreviewProvider {
     static var previews: some View {
-        BottomView(channelUrl:"https://www.ifengus.com")
+        BottomView(channelID:2)
     }
 }

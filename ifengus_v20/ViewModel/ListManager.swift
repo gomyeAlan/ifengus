@@ -19,14 +19,14 @@ class ListManager :ObservableObject  {
     //建立一个集合
     @Published var lists = [Lists]()
 
-    var indices: Int = 1
+    var indices: Int = 17
     
     init(){
-        getListContent(pid:1)
+        getListContent(pid:17)
     }
     
     func getListContent(pid:Int) {
-       let url = URL(string: "https://www.ifengus.com/api/cms/archives?cid=\(pid)&limite=10&apitoken=hiRNzRjQ!x2x@H@X")!
+       let url = URL(string: "https://www.ifengus.com/api/cms/archives?cid=\(pid)&limite=30&type=son&apitoken=hiRNzRjQ!x2x@H@X")!
        URLSession.shared.dataTask(with: url) {(data,response,error) in
            do {
             if let d = data {

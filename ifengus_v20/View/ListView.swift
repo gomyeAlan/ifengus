@@ -10,6 +10,7 @@ import SwiftUI
 struct ListView: View {
     @StateObject private var model = MyTestModel()
     @ObservedObject var listManager = ListManager()
+    var channelID: Int
 
 
     var body: some View {
@@ -44,12 +45,12 @@ struct Row: View {
                     Image(uiImage: imageLoader.image!)
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 80, height: 120)
+                        .frame(width: 100, height: 120)
                         .clipped()
                 } else {
                     RoundedRectangle(cornerRadius: 5)
                         .foregroundColor(.secondary)
-                        .frame(width: 80, height: 120)
+                        .frame(width: 100, height: 120)
                 }
                 
 
@@ -120,6 +121,6 @@ extension View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView()
+        ListView(channelID:17)
     }
 }
