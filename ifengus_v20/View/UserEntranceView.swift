@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct UserEntranceView: View {
-    @ObservedObject var accountmanager = AccountViewModel(isFlagTest: false)
+    @ObservedObject var accountmanager = AccountViewModel()
     @ObservedObject var loginmanager: LoginViewManager = LoginViewManager()
     @State var username = ""
     @State var password = ""

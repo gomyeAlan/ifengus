@@ -25,6 +25,9 @@
 		15618E6025BCBC7F00CE839C /* UserEntranceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15618E5F25BCBC7F00CE839C /* UserEntranceView.swift */; };
 		15618E6325BF2D1800CE839C /* AccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15618E6225BF2D1800CE839C /* AccountViewModel.swift */; };
 		15618E7F25BF912B00CE839C /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15618E7E25BF912B00CE839C /* CircleImage.swift */; };
+		CF153F9E25C9B87C003EA0BC /* ifengus_v20.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF153F9C25C9B87C003EA0BC /* ifengus_v20.xcdatamodeld */; };
+		CF153FA125C9B924003EA0BC /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF153FA025C9B924003EA0BC /* Persistence.swift */; };
+		CF153FA425C9BB3B003EA0BC /* CoredataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF153FA325C9BB3B003EA0BC /* CoredataView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		15618E5F25BCBC7F00CE839C /* UserEntranceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntranceView.swift; sourceTree = "<group>"; };
 		15618E6225BF2D1800CE839C /* AccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewModel.swift; sourceTree = "<group>"; };
 		15618E7E25BF912B00CE839C /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
+		CF153F9D25C9B87C003EA0BC /* ifengus_v20.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ifengus_v20.xcdatamodel; sourceTree = "<group>"; };
+		CF153FA025C9B924003EA0BC /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		CF153FA325C9BB3B003EA0BC /* CoredataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoredataView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +90,11 @@
 				1547E18D25B4C6DA004727CF /* ViewModel */,
 				1547E19325B4C870004727CF /* Model */,
 				1547E17E25B4C3D1004727CF /* Assets.xcassets */,
+				CF153FA325C9BB3B003EA0BC /* CoredataView.swift */,
+				CF153FA025C9B924003EA0BC /* Persistence.swift */,
 				1547E18325B4C3D1004727CF /* Info.plist */,
 				1547E18025B4C3D1004727CF /* Preview Content */,
+				CF153F9C25C9B87C003EA0BC /* ifengus_v20.xcdatamodeld */,
 			);
 			path = ifengus_v20;
 			sourceTree = "<group>";
@@ -208,16 +217,19 @@
 				15618E7F25BF912B00CE839C /* CircleImage.swift in Sources */,
 				15618E6325BF2D1800CE839C /* AccountViewModel.swift in Sources */,
 				1547E24025B6425B004727CF /* BottomView.swift in Sources */,
+				CF153F9E25C9B87C003EA0BC /* ifengus_v20.xcdatamodeld in Sources */,
 				1547E20425B51CF7004727CF /* SideMenuView.swift in Sources */,
 				15618E4525B9EA6700CE839C /* LoginViewManager.swift in Sources */,
 				15618E3825B8A00500CE839C /* LoginView.swift in Sources */,
 				1547E17D25B4C3CE004727CF /* ContentView.swift in Sources */,
+				CF153FA125C9B924003EA0BC /* Persistence.swift in Sources */,
 				15618E4125B8AF7D00CE839C /* LoadingView.swift in Sources */,
 				1547E17B25B4C3CE004727CF /* ifengus_v20App.swift in Sources */,
 				1547E23A25B5FFD4004727CF /* SideMenuHeaderView.swift in Sources */,
 				15618E3B25B8A30400CE839C /* ResetPasswordView.swift in Sources */,
 				1547E19525B4C8CF004727CF /* ChannelDate.swift in Sources */,
 				15618E3E25B8AA7B00CE839C /* SignupView.swift in Sources */,
+				CF153FA425C9BB3B003EA0BC /* CoredataView.swift in Sources */,
 				15618E6025BCBC7F00CE839C /* UserEntranceView.swift in Sources */,
 				1547E19025B4C73E004727CF /* ChannelManager.swift in Sources */,
 			);
@@ -408,6 +420,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		CF153F9C25C9B87C003EA0BC /* ifengus_v20.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				CF153F9D25C9B87C003EA0BC /* ifengus_v20.xcdatamodel */,
+			);
+			currentVersion = CF153F9D25C9B87C003EA0BC /* ifengus_v20.xcdatamodel */;
+			path = ifengus_v20.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1547E16F25B4C3CE004727CF /* Project object */;
 }

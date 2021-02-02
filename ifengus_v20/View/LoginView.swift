@@ -78,7 +78,7 @@ struct LoginView: View {
                     Button(action: {
 //                        self.accountmanager.isFlag.toggle()
                         self.returnmsg = ""
-                        self.accountmanager.cleanUser(userinfo: self.userresult)
+                        self.cleanUser()
                     }, label: {
                         Text("退出").frame(width: 360, height: 22, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .padding().background(Color.blue).foregroundColor(.white)
@@ -170,6 +170,18 @@ struct LoginView: View {
                 .foregroundColor(.white)
     }
     
+    func cleanUser() {
+        if !self.userresult.isEmpty {
+            for item in self.userresult {
+                self.usercontext.delete(item)
+            }
+            do {
+                try self.usercontext.save()
+            } catch let error as NSError {
+                print(error)
+            }
+        }
+    }
     
     //登录认证函数
     func loginVaild(username: String, password: String) {
@@ -179,7 +191,7 @@ struct LoginView: View {
         }
         let request = URLRequest.init(url: url)
         //clean coredata
-        self.accountmanager.cleanUser(userinfo: self.userresult)
+        self.cleanUser()
         
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
@@ -223,3 +235,9 @@ struct LoginView: View {
 //    }
 //}
 
+
+//    List {
+//        ForEach(userresult) { item in
+//            Text("Item at \(item.username!)")
+//        }
+//    }
