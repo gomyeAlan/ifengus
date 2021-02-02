@@ -16,7 +16,8 @@ struct BottomView: View {
         ZStack {
             VStack{
                 TabView() {
-                    WebViewShow(channelUrl:channelUrl)
+                    //WebViewShow(channelUrl:channelUrl)
+                    ListView()
                     .tabItem {
                 Image(systemName: (selected == 0 ? "house.fill" : "house"))
                 Text("Menu")

@@ -56,7 +56,8 @@ struct HomeView: View {
     var body: some View {
         ZStack {
             Color(.white)
-            WebViewShow(channelUrl:"https://www.ifengus.com")
+            //WebViewShow(channelUrl:"https://www.ifengus.com")
+            ListView()
             .padding()
             
         }
