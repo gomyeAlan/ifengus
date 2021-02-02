@@ -6,39 +6,37 @@
 //
 
 import SwiftUI
+import CoreData
 
 
 struct LoginView: View {
- 
-    @ObservedObject var accountmanager = AccountViewModel(isFlagTest: false)
+    @ObservedObject var accountmanager:AccountViewModel = AccountViewModel()
     @ObservedObject var loginmanager: LoginViewManager = LoginViewManager()
-    @State var username = ""
+    @State var loginname = ""
     @State var password = ""
     @State var returnmsg = ""
     @State var result: String = ""
     @State var pwdinput: String = ""
     
-    
    // @Binding var loginType: Int
-
     @State var isShowAlert = false
     @State var alertTitle = ""
     @State var alertMessage = ""
     @State var isActiveReset = false
     @State var isShowLoading = false
     
+    //coredata
+    @FetchRequest(entity: Userinfo.entity(), sortDescriptors: []) var userresult: FetchedResults<Userinfo>
+    @Environment(\.managedObjectContext) var usercontext
     
     var body: some View {
-       // var employee: Employee
-
-        
         
         ZStack{
             VStack{
-                if accountmanager.isFlag {
- 
+//                if accountmanager.isFlag {
+                if !userresult.isEmpty{
                             CircleImage(imageName: "Login", size: 120).padding()
-                            Text("Name")
+                    Text("Name:\((self.userresult.first?.username)!)")
                                 .font(.title)
                             Divider()
                             VStack(alignment: .leading) {
@@ -63,7 +61,7 @@ struct LoginView: View {
                                         .font(.subheadline)
                                         .bold()
                                     Spacer()
-                                    Text("phoneNumber")
+                                    Text("\((self.userresult.first?.phonenumber)!)")
                                         .font(.subheadline)
                                 }.padding()
                                 HStack(alignment: .top) {
@@ -78,21 +76,16 @@ struct LoginView: View {
                             Spacer()
                     
                     Button(action: {
-                        self.accountmanager.isFlag.toggle()
+//                        self.accountmanager.isFlag.toggle()
+                        self.returnmsg = ""
+                        self.accountmanager.cleanUser(userinfo: self.userresult)
                     }, label: {
                         Text("退出").frame(width: 360, height: 22, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                             .padding().background(Color.blue).foregroundColor(.white)
                             .cornerRadius(15)
                     }).padding()
 
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                   
+                //login view
                 } else {
                     Spacer()
                     VStack{
@@ -102,11 +95,7 @@ struct LoginView: View {
                     
                     HStack{
                         Image(systemName: "person").foregroundColor(.gray).padding()
-                        TextField("请输入用户名，长度为 3-10", text: $username).keyboardType(.namePhonePad)
-                        //没有用户
-                       // if username.count > 0 {
-                       
-                       //}
+                        TextField("请输入用户名，长度为 3-10", text: $loginname).keyboardType(.namePhonePad)
                     }.overlay(RoundedRectangle(cornerRadius: 15).stroke(Color.gray, lineWidth: 1))
                     .padding(.horizontal).foregroundColor(.gray)
                     
@@ -124,22 +113,22 @@ struct LoginView: View {
                     
                     HStack {
                         Spacer()
-                        NavigationLink(
-                            destination: ResetPaswordView(isActiveReset: $isActiveReset),
-                            isActive: $isActiveReset,
-                            label: {
-                                Text("新用户注册").foregroundColor(.blue)
-                            }).padding()
+//                        NavigationLink(
+//                            destination: ResetPaswordView(isActiveReset: $isActiveReset),
+//                            isActive: $isActiveReset,
+//                            label: {
+//                                Text("新用户注册").foregroundColor(.blue)
+//                            }).padding()
                         
-                        NavigationLink(
-                            destination: ResetPaswordView(isActiveReset: $isActiveReset),
-                            isActive: $isActiveReset,
-                            label: {
-                                Text("忘记密码").foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                            }).padding()
+//                        NavigationLink(
+//                            destination: ResetPaswordView(isActiveReset: $isActiveReset),
+//                            isActive: $isActiveReset,
+//                            label: {
+//                                Text("忘记密码").foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+//                            }).padding()
                     }
                     Button(action: {
-                        if username.isEmpty {
+                        if loginname.isEmpty {
                             isShowAlert = true
                             alertTitle = "错误"
                             alertMessage = "用户名不能为空"
@@ -148,15 +137,7 @@ struct LoginView: View {
                             alertTitle = "错误"
                             alertMessage = "请输入密码"
                         } else {
-                          //  loginmanager.loginVaild(username: username, password: password)
-                            self.loginVaild(username: username, password: password)
-
-                           //PersonalView()
-                           // isShowAlert = true
-                           // alertTitle = "信息"
-                            
-                            //alertMessage = deresponse.msg
-                            //alertMessage = self
+                            self.loginVaild(username: loginname, password: password)
                         }
                     }, label: {
                         Text("登录").frame(width: 360, height: 22, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
@@ -167,41 +148,11 @@ struct LoginView: View {
                     Text(self.returnmsg)
                         .disabled(self.returnmsg.isEmpty)
                     Spacer()
-                    
-                    
-                    
-                    
-                    
-//
-//
-//                    Form {
-//                        Section {
-//                            TextField("Username", text: $username)
-//                            TextField("Password", text: $password)
-//                        }
-//                        Section
-//                        {
-//                            Button("Login") {
-//                           //     self.loginVaild(username: username, password: password)
-//                            }
-//                        }
-//                        .disabled(username.isEmpty || password.isEmpty)
-//                        Text(self.returnmsg)
-//                            .disabled(self.returnmsg.isEmpty)
-//                    }
                 }
             }
             
-            
-            
-            
-            
             VStack{
-    
                 VStack{
- 
-                
- 
                 }
             }.navigationBarTitle("登录")
             .alert(isPresented: $isShowAlert) {
@@ -227,7 +178,9 @@ struct LoginView: View {
             fatalError("url isn't vaild")
         }
         let request = URLRequest.init(url: url)
-
+        //clean coredata
+        self.accountmanager.cleanUser(userinfo: self.userresult)
+        
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 fatalError("Error: \(error.localizedDescription)")
@@ -235,13 +188,20 @@ struct LoginView: View {
             guard let data = data else {
                 fatalError("Error: parse data error")
             }
-    //            print(String(data: data, encoding: .utf8)!)
+    
             do {
                 let  deresponse = try JSONDecoder().decode(isLoginResponse.self, from: data)
                 DispatchQueue.main.async {
                     self.returnmsg = deresponse.msg
                     if deresponse.code == 1 {
-                    self.accountmanager.isFlag = true
+//                        self.accountmanager.isFlag = true
+                        let userinfo = Userinfo(context: usercontext)
+                        userinfo.username = deresponse.data!.username
+                        userinfo.phonenumber = deresponse.data!.mobile
+                        userinfo.isremember = false
+                        userinfo.token = deresponse.data!.token
+                        userinfo.didSave()
+                        self.loginname = deresponse.data!.username
                     }
                 }
                 print(deresponse.msg)
@@ -251,14 +211,15 @@ struct LoginView: View {
             }
         }.resume()
     }
-    
+
 }
 
-struct LoginView_Previews: PreviewProvider {
-    @State static var loginType = 1
-    static var previews: some View {
-       // LoginView(loginType: $loginType)
-        LoginView()
+//struct LoginView_Previews: PreviewProvider {
+//    @State static var loginType = 1
+//    static var previews: some View {
+//       // LoginView(loginType: $loginType)
+//        LoginView()
+//
+//    }
+//}
 
-    }
-}
