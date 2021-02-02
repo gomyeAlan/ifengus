@@ -26,7 +26,7 @@ class ListManager :ObservableObject  {
     }
     
     func getListContent(pid:Int) {
-       let url = URL(string: "https://www.ifengus.com/api/cms/archives?cid=17&limite=10&apitoken=hiRNzRjQ!x2x@H@X")!
+       let url = URL(string: "https://www.ifengus.com/api/cms/archives?cid=\(pid)&limite=10&apitoken=hiRNzRjQ!x2x@H@X")!
        URLSession.shared.dataTask(with: url) {(data,response,error) in
            do {
             if let d = data {
