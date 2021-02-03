@@ -12,7 +12,6 @@ struct ListView: View {
     @ObservedObject var listManager = ListManager()
     var channelID: Int
 
-
     var body: some View {
         NavigationView {
             MCRefreshableVerticalScrollView(refreshing: self.$model.loading) {
@@ -21,14 +20,22 @@ struct ListView: View {
 //                        Row(article: article)
 //                    }
                     //cell
+//                    Button("click me load list"){
+//                        listManager.getListContent(pid: 3)
+//                    }
+                    Text("\(channelID)")
                     ForEach(listManager.lists){ list in
                             Row(list: list)
                     }
                 }
             }
             .navigationBarTitle("我的文章", displayMode: .inline)
+            .onAppear{
+                listManager.getListContent(pid: channelID)
+            }
         }
     }
+    
 }
 
 struct Row: View {
@@ -121,6 +128,6 @@ extension View {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(channelID:17)
+        ListView(channelID: 2)
     }
 }

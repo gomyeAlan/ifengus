@@ -19,10 +19,10 @@ class ListManager :ObservableObject  {
     //建立一个集合
     @Published var lists = [Lists]()
 
-    var indices: Int = 17
+    var indices: Int = 2
     
     init(){
-        getListContent(pid:17)
+        getListContent(pid:indices)
     }
     
     func getListContent(pid:Int) {

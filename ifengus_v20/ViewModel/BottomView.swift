@@ -10,47 +10,50 @@ import SwiftUI
 struct BottomView: View {
     @State private var selected = 0
     
+    @ObservedObject var listManager = ListManager()
     //var channelUrl: String
     var channelID: Int
-
+    
     var body: some View {
         ZStack {
             VStack{
-
+                
                 TabView() {
                     //WebViewShow(channelUrl:channelUrl)
-                    ListView(channelID:channelID)
+                
+                    ListView(channelID: channelID)
                     .tabItem {
-                Image(systemName: (selected == 0 ? "house.fill" : "house"))
-                Text("Menu")
-                }
+                        Image(systemName: (selected == 0 ? "house.fill" : "house"))
+                        Text("Menu")
+                    }
      
                 
                     SideMenuView(isShowing: .constant(true))
-                        
-                        .tabItem {
-                Image(systemName: (selected == 1 ? "list.bullet.rectangle" : "list.bullet"))
-                Text("Menu")
-              }
+                    .tabItem {
+                        Image(systemName: (selected == 1 ? "list.bullet.rectangle" : "list.bullet"))
+                        Text("Menu")
+                    }
      
                    // WebViewShow(channelID:channelID)
-                   ListView(channelID:channelID)
-                .tabItem {
-                Image(systemName: (selected == 2 ? "heart.fill" : "heart"))
-                Text("Favorite")
-              }
+                   ListView(channelID: channelID)
+                    .tabItem {
+                        Image(systemName: (selected == 2 ? "heart.fill" : "heart"))
+                        Text("Favorite")
+                    }
+                    
                 
                     LoginView()
-                        .tabItem {
-                Image(systemName: (selected == 3 ? "person.fill" : "person"))
-                Text("Profile")
-              }
-
+                    .tabItem {
+                        Image(systemName: (selected == 3 ? "person.fill" : "person"))
+                        Text("Profile")
+                    }
+                }
             }
-            }
-
         }
-
+    }
+    
+    func load(){
+        
     }
 }
 
