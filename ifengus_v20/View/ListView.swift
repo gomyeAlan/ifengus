@@ -16,20 +16,12 @@ struct ListView: View {
         NavigationView {
             MCRefreshableVerticalScrollView(refreshing: self.$model.loading) {
                 VStack(spacing: 0) {
-//                    ForEach(model.articleArray) { article in
-//                        Row(article: article)
-//                    }
-                    //cell
-//                    Button("click me load list"){
-//                        listManager.getListContent(pid: 3)
-//                    }
-                    Text("\(channelID)")
                     ForEach(listManager.lists){ list in
                             Row(list: list)
                     }
                 }
             }
-            .navigationBarTitle("我的文章", displayMode: .inline)
+            .navigationBarTitle("\(channelID)", displayMode: .inline)
             .onAppear{
                 listManager.getListContent(pid: channelID)
             }
@@ -43,11 +35,15 @@ struct Row: View {
   
     //let article: Article
     let list: Lists
+    
 
     var body: some View {
+        
+        
         ZStack(alignment: .bottom) {
             HStack {
-                
+                NavigationLink(destination:WebViewShow(channelUrl: "https://www.ifengus.com" + list.url))
+                {
                 if imageLoader.image != nil {
                     Image(uiImage: imageLoader.image!)
                         .resizable()
@@ -65,15 +61,36 @@ struct Row: View {
                     Text(list.title)
                         .font(.headline)
                         .foregroundColor(.primary)
-                        .lineLimit(1)
-
-                    Text(list.description)
-                        .font(.subheadline)
-                        .foregroundColor(.secondary)
                         .lineLimit(3)
-                        .multilineTextAlignment(.leading)
-                }
-            }
+                        
+
+//                    Text(list.description)
+//                        .font(.subheadline)
+//                        .foregroundColor(.secondary)
+//                        .lineLimit(3)
+//                        .multilineTextAlignment(.leading)
+                
+                    HStack {
+                        Spacer()
+                        Image(systemName: "eye")
+                            .foregroundColor(.gray)
+                            .imageScale(.small)
+                        Text("\(list.views)")
+                            .foregroundColor(.gray)
+                        Image(systemName: "hand.thumbsup")
+                            .foregroundColor(.gray)
+                            .imageScale(.small)
+                        Text("\(list.likes)")
+                            .foregroundColor(.gray)
+                        Image(systemName: "bubble.right")
+                            .foregroundColor(.gray)
+                            .imageScale(.small)
+                        Text("\(list.comments)")
+                            .foregroundColor(.gray)
+
+                    }
+                }.padding(.horizontal, 10)
+                }}
             .padding(.horizontal, 10)
 
             Divider()

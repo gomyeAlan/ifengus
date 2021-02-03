@@ -226,14 +226,14 @@ struct LoginView: View {
 
 }
 
-//struct LoginView_Previews: PreviewProvider {
-//    @State static var loginType = 1
-//    static var previews: some View {
-//       // LoginView(loginType: $loginType)
-//        LoginView()
-//
-//    }
-//}
+struct LoginView_Previews: PreviewProvider {
+    @State static var loginType = 1
+    static var previews: some View {
+       // LoginView(loginType: $loginType)
+        LoginView()
+
+    }
+}
 
 
 //    List {

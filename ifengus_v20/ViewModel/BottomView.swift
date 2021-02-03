@@ -26,9 +26,8 @@ struct BottomView: View {
                         Image(systemName: (selected == 0 ? "house.fill" : "house"))
                         Text("Menu")
                     }
-     
-                
-                    SideMenuView(isShowing: .constant(true))
+                     
+                    MenuView()
                     .tabItem {
                         Image(systemName: (selected == 1 ? "list.bullet.rectangle" : "list.bullet"))
                         Text("Menu")
@@ -41,7 +40,7 @@ struct BottomView: View {
                         Text("Favorite")
                     }
                     
-                
+
                     LoginView()
                     .tabItem {
                         Image(systemName: (selected == 3 ? "person.fill" : "person"))

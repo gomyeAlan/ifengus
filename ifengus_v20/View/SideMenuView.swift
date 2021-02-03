@@ -46,8 +46,6 @@ struct SideMenuView: View {
 
                         }
                     )
-                   
-
                 }
                 
                 //SideMenuOptionView()

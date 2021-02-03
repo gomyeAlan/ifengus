@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+
 class ChannelManager :ObservableObject  {
     
     //建立一个集合
@@ -41,4 +43,3 @@ class ChannelManager :ObservableObject  {
             
 }
 }
-
