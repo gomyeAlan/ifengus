@@ -9,10 +9,13 @@ import SwiftUI
 
 struct MenuView: View {
     @ObservedObject var channelmanager = ChannelManager()
-    
+    @State private var searchTerm : String = ""
     
     var body: some View {
         VStack {
+            SearchBar(text: $searchTerm)
+                .padding(EdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 10))
+
             List(channelmanager.channels) { channel in
          
                     Image(systemName: ("arrowshape.zigzag.forward"))
@@ -23,7 +26,6 @@ struct MenuView: View {
                         .font(.system(size: 20))
                     .foregroundColor(.black)
              }
-           
         }
     }
 }

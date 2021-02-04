@@ -10,10 +10,10 @@ import SwiftUI
 struct ContentView: View {
     @State private var isShowing = false
     
-    
     var body: some View {
         NavigationView {
             ZStack {
+                
                 if isShowing{
                     SideMenuView(isShowing: $isShowing)
                 }
