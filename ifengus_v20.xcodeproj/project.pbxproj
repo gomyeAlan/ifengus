@@ -34,6 +34,7 @@
 		CF153F9E25C9B87C003EA0BC /* ifengus_v20.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CF153F9C25C9B87C003EA0BC /* ifengus_v20.xcdatamodeld */; };
 		CF153FA125C9B924003EA0BC /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF153FA025C9B924003EA0BC /* Persistence.swift */; };
 		CF153FA425C9BB3B003EA0BC /* CoredataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF153FA325C9BB3B003EA0BC /* CoredataView.swift */; };
+		CFF9B2CF25CBB0420027A4EA /* FunctionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF9B2CE25CBB0420027A4EA /* FunctionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		CF153F9D25C9B87C003EA0BC /* ifengus_v20.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ifengus_v20.xcdatamodel; sourceTree = "<group>"; };
 		CF153FA025C9B924003EA0BC /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		CF153FA325C9BB3B003EA0BC /* CoredataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoredataView.swift; sourceTree = "<group>"; };
+		CFF9B2CE25CBB0420027A4EA /* FunctionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				15BC9BCC25C9C41C0088EF5E /* MCRefreshableScrollView.swift */,
 				15BC9BD225C9CDC40088EF5E /* ListManager.swift */,
 				159073D825CB7B4000306D94 /* SearchBar.swift */,
+				CFF9B2CE25CBB0420027A4EA /* FunctionManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				1547E20425B51CF7004727CF /* SideMenuView.swift in Sources */,
 				159073D925CB7B4000306D94 /* SearchBar.swift in Sources */,
 				15618E4525B9EA6700CE839C /* LoginViewManager.swift in Sources */,
+				CFF9B2CF25CBB0420027A4EA /* FunctionManager.swift in Sources */,
 				15618E3825B8A00500CE839C /* LoginView.swift in Sources */,
 				15BC9BD325C9CDC40088EF5E /* ListManager.swift in Sources */,
 				1547E17D25B4C3CE004727CF /* ContentView.swift in Sources */,
