@@ -11,6 +11,7 @@ struct MenuView: View {
     @ObservedObject var channelmanager = ChannelManager()
     @State private var searchTerm : String = ""
     
+    
     var body: some View {
         VStack {
             SearchBar(text: $searchTerm)

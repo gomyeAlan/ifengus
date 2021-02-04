@@ -27,76 +27,6 @@ struct ListView: View {
     }
 
 
-struct Row: View {
-    @StateObject private var imageLoader = CoverImageLoader()
-  
-    //let article: Article
-    let list: Lists
-    
-
-    var body: some View {
-        
-        
-        ZStack(alignment: .bottom) {
-            HStack {
-                NavigationLink(destination:WebViewShow(channelUrl: "https://www.ifengus.com" + list.url))
-                {
-                if imageLoader.image != nil {
-                    Image(uiImage: imageLoader.image!)
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(width: 100, height: 120)
-                        .clipped()
-                } else {
-                    RoundedRectangle(cornerRadius: 5)
-                        .foregroundColor(.secondary)
-                        .frame(width: 100, height: 120)
-                }
-                
-
-                VStack(alignment: .leading, spacing: 10) {
-                    Text(list.title)
-                        .font(.headline)
-                        .foregroundColor(.primary)
-                        .lineLimit(3)
-                        
-
-//                    Text(list.description)
-//                        .font(.subheadline)
-//                        .foregroundColor(.secondary)
-//                        .lineLimit(3)
-//                        .multilineTextAlignment(.leading)
-                
-                    HStack {
-                        Spacer()
-                        Image(systemName: "eye")
-                            .foregroundColor(.gray)
-                            .imageScale(.small)
-                        Text("\(list.views)")
-                            .foregroundColor(.gray)
-                        Image(systemName: "hand.thumbsup")
-                            .foregroundColor(.gray)
-                            .imageScale(.small)
-                        Text("\(list.likes)")
-                            .foregroundColor(.gray)
-                        Image(systemName: "bubble.right")
-                            .foregroundColor(.gray)
-                            .imageScale(.small)
-                        Text("\(list.comments)")
-                            .foregroundColor(.gray)
-
-                    }
-                }.padding(.horizontal, 10)
-                }}
-            .padding(.horizontal, 10)
-
-            Divider()
-        }
-        .onAppear {
-            imageLoader.load(list.image)
-        }
-    }
-}
 
 class CoverImageLoader: ObservableObject {
     @Published var image: UIImage? = nil
@@ -110,14 +40,6 @@ class CoverImageLoader: ObservableObject {
             }
         }
         .resume()
-    }
-}
-
-
-extension View {
-    func debug() -> Self {
-        print(Mirror(reflecting: self).subjectType)
-        return self
     }
 }
 

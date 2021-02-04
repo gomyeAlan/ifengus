@@ -33,7 +33,7 @@ struct SignupView: View {
                         TextField("请输入用户名，长度为 3-10", text: $username).keyboardType(.namePhonePad)
                        // if username.count > 0 {
                        //     EmptyView().modifier(Validation(value: username) { item in
-                         //       return item.count > 2 && item.count < 11
+                        //       return item.count > 2 && item.count < 11
                         //    })
                         //}
                     }.overlay(RoundedRectangle(cornerRadius: 15).stroke(Color.gray, lineWidth: 1))

@@ -23,8 +23,8 @@ class ChannelManager :ObservableObject  {
     
     func getChannelName(pid:Int) {
 
-           let url = URL(string: "https://ifengus.com/index/channeltree/getchildtree?pid=0")!
-       
+           let url = URL(string: "https://ifengus.com/api/cms/getsontree?pid=0&type=channel&apitoken=hiRNzRjQ!x2x@H@X")!
+
            URLSession.shared.dataTask(with: url) {(data,response,error) in
                do {
                    if let d = data {

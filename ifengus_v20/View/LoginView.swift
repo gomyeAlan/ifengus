@@ -161,13 +161,7 @@ struct LoginView: View {
             if isShowLoading {
             }
         }
-            Spacer()
-            
-            Text(self.loginmanager.message)
-                .frame(width: UIScreen.main.bounds.width - 40, height: 60, alignment: .leading)
-                .padding(.horizontal, 10)
-                .background(Color.gray)
-                .foregroundColor(.white)
+     
     }
     
     func cleanUser() {
