@@ -8,13 +8,11 @@
 import SwiftUI
 
 struct ListView: View {
-    @StateObject private var model = MyTestModel()
     @ObservedObject var listManager = ListManager()
     var channelID: Int
 
     var body: some View {
         NavigationView {
-            MCRefreshableVerticalScrollView(refreshing: self.$model.loading) {
                 VStack(spacing: 0) {
                     ForEach(listManager.lists){ list in
                             Row(list: list)
@@ -27,8 +25,7 @@ struct ListView: View {
             }
         }
     }
-    
-}
+
 
 struct Row: View {
     @StateObject private var imageLoader = CoverImageLoader()
@@ -116,24 +113,6 @@ class CoverImageLoader: ObservableObject {
     }
 }
 
-class MyTestModel: ObservableObject {
-    @Published var loading: Bool = false {
-        didSet {
-            if oldValue == false, loading == true {
-                load()
-            }
-        }
-    }
-
-    @Published var articleArray: [Article] = articles
-
-    func load() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(4)) {
-            self.loading = false
-            self.articleArray.shuffle()
-        }
-    }
-}
 
 extension View {
     func debug() -> Self {
