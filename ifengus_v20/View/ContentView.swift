@@ -57,7 +57,7 @@ struct HomeView: View {
         ZStack {
             Color(.white)
             //WebViewShow(channelUrl:"https://www.ifengus.com")
-            ListView(channelID: 2)
+            ListView(channelID: 17)
             .padding()
             
         }

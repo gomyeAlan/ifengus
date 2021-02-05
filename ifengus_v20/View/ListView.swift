@@ -69,11 +69,11 @@ struct Row: View {
                             .imageScale(.small)
                         Text("\(lists.likes)")
                             .foregroundColor(.gray)
-                        Image(systemName: "bubble.right")
-                            .foregroundColor(.gray)
-                            .imageScale(.small)
-                        Text("\(lists.comments)")
-                            .foregroundColor(.gray)
+                       // Image(systemName: "bubble.right")
+                        //    .foregroundColor(.gray)
+                        //    .imageScale(.small)
+                       // Text("\(lists.comments)")
+                        //    .foregroundColor(.gray)
                     }
                 }
             }
@@ -126,6 +126,6 @@ class MyTestModel: ObservableObject {
 
 struct ListView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(channelID: 2)
+        ListView(channelID: 17)
     }
 }

@@ -16,7 +16,7 @@ struct Lists: Codable, Identifiable {
     public var channel_id: Int
     public var likes: Int
     public var views: Int
-    public var comments: Int
+    //public var comments: Int
     public var url: String
     
    
@@ -29,7 +29,7 @@ struct Lists: Codable, Identifiable {
         case channel_id = "channel_id"
         case likes = "likes"
         case views = "views"
-        case comments = "comments"
+       // case comments = "comments"
         case url = "url"
 
        }
